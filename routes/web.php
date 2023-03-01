@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/generate-barcode', [ProductController::class, 'index'])->name('generate.barcode');
+Route::get('/generate-barcode', [ProductController::class, 'index']);
 Route::get('/product/create', [ProductController::class, 'create']);
 Route::post('/product', [ProductController::class, 'store']);
+Route::post('/store', [TransactionController::class, 'store']);
